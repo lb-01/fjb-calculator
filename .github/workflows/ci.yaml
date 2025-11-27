@@ -11,11 +11,6 @@ jobs:
     steps:
       - name: checkout code from repository
         uses: actions/checkout@v5
-      - name: setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24.x
-          cache: 'npm'
       - name: install dependencies
         run: npm ci
       - name: check code formatting
@@ -36,7 +31,6 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
       - name: install dependencies
         run: npm ci
       - name: build module
@@ -50,11 +44,6 @@ jobs:
     steps:
       - name: checkout code from repository
         uses: actions/checkout@v5
-      - name: setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24.x
-          cache: 'npm'
       - name: install dependencies
         run: npm ci
       - name: test module and generate coverage
