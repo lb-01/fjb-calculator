@@ -29,5 +29,5 @@ jobs:
         run: |
           gh release create v${{ steps.version.outputs.result }} \
             --generate-notes \
-            --title "Release v${{ steps.version.outputs.result }}" \
-            --notes "Release notes here"
+            -F release-notes.md \
+            --title "Release v${{ steps.version.outputs.result }}"
