@@ -1,6 +1,7 @@
 name: Create new release
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -20,7 +21,8 @@ jobs:
           result-encoding: string
           script: |
             const pkjson = require(`${process.env.GITHUB_WORKSPACE}/package.json`);
-                     return pkjson.version;
+            core.info(`Version: ${pkjson.version}`);
+            return pkjson.version;
       # - name: Create Release
       #   id: create_release
       #   uses: actions/create-release@v1
